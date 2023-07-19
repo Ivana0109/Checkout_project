@@ -1,16 +1,22 @@
 import React, { useState } from "react";
 import Inputcontainer from "./Inputcontainer";
 
-function Emailinput({ setValue, placeholder, error, setError }) {
-  function isValidEmail(email) {
+type Props={
+  setValue:(value:string)=>void,
+
+  placeholder:string, error:string, setError:(value:string)=>void
+}
+
+function Emailinput({ setValue, placeholder, error, setError }:Props) {
+  function isValidEmail(email: string) {
     return /\S+@\S+\.\S+/.test(email);
   }
-  const handleChange = (value) => {
+  const handleChange = (value : string ) => {
     if (!isValidEmail(value)) {
       setError("Email is invalid");
     } else {
-      setError(null);
-    }
+      setError(null!);
+    }  
 
     setValue(value);
   };
@@ -20,6 +26,7 @@ function Emailinput({ setValue, placeholder, error, setError }) {
       placeholder={placeholder}
       error={error}
       setError={setError}
+  
     />
   );
 }

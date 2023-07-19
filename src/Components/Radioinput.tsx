@@ -1,6 +1,10 @@
 import React from "react";
 
-function Radioinput({ setValue, data, value }) {
+type Props={
+  setValue: (value: string) => void;
+  data: string[], value:string
+}
+function Radioinput({ setValue, data, value }:Props) {
   return (
     <div>
       <div>

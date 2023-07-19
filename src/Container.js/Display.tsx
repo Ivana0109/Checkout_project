@@ -6,23 +6,24 @@ import Radioinput from "../Components/Radioinput";
 import styles from "./Display.module.css";
 import Results from "../Components/Results";
 import Emailinput from "../Components/Emailinput";
+import { ErrorData, InputData } from "../Components/types";
 
 function Display() {
-  const [data, setData] = useState({
+  const [data, setData] = useState<InputData>({
     email: "",
     name: "",
     country: "",
     adress: "",
     payment: "",
   });
-  const [errors, setErrors] = useState({
+  const [errors, setErrors] = useState<ErrorData>({
     email: "",
     name: "",
     country: "",
     adress: "",
   });
   const [terms, setTerms] = useState(false);
-  const [displayResults, setDisplayResults] = useState(null);
+  const [displayResults, setDisplayResults] = useState<InputData>(null!);
 
   // errors.name
   // errors["name"]
@@ -95,7 +96,7 @@ function Display() {
               alert(
                 "Da biste potvrdili narudžbu morate prvo prihvatiti uvjete narudžbe!"
               );
-            } else if (Object.keys(errors).some((item) => !!errors[item])) {
+            } else if ((Object.keys(errors) as Array<keyof typeof errors>).some((item) => !!errors[item])) {
               alert("Morate ispraviti greške!");
             } else {
               setDisplayResults(data);

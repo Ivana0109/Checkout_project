@@ -1,6 +1,9 @@
 import React from "react";
-
-function Checkbox({ checked, handleChange }) {
+type Props= {
+  checked:boolean,
+  handleChange:(value:boolean)=>void
+}
+function Checkbox({ checked, handleChange }:Props) {
   return (
     <div>
       <label>
