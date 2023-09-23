@@ -30,7 +30,7 @@ function Display() {
 
   return (
     <div className={styles.container}>
-      <div style={{ color: "darkgreen", fontWeight: "bold" }}>Plaćanje</div>
+      <div style={{ color: "black", fontWeight: "bold" ,textTransform:"uppercase"}}>Plaćanje</div>
       <div> Kontakt</div>
       <Emailinput
         placeholder={"Email adresa..."}
@@ -42,7 +42,7 @@ function Display() {
         }}
         error={errors.email}
       />
-      <div>Adresa</div>
+      <div>Opći podaci</div>
       <Inputcontainer
         placeholder={"Ime:"}
         min={3}
